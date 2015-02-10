@@ -2,7 +2,7 @@ var MakePopDancer = function(top, left, timeBetweenSteps){
   MakeDancer.apply(this, arguments);
   this.$node = $('<img src="lib/carlton.gif" class="carlton"></img>');
   this.setPosition(top, left);
-
+  this.duration = 500;
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 
@@ -25,4 +25,3 @@ MakePopDancer.prototype.step = function(){
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.show();
 };
-

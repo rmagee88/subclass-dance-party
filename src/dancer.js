@@ -7,12 +7,22 @@ var MakeDancer = function(top, left, timeBetweenSteps){
   this.top = top;
   this.left = left;
   this.step();
-
+  this.duration = 500;
+  this.style = "swing";
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
   this.setPosition(top, left);
 
+};
+
+MakeDancer.prototype.lineUp = function(yDancerLoc, xDancerLoc, distBetween){
+  var result = []
+  result.push(Math.random() * 100);
+  result.push(yDancerLoc + distBetween);
+  result.push(this.duration);
+  result.push(this.style);
+  return result;
 };
 
 MakeDancer.prototype.step = function(){
