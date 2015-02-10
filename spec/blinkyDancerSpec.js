@@ -6,7 +6,7 @@ describe("blinkyDancer", function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = makeBlinkyDancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
   });
 
   it("should have a jQuery $node object", function(){
@@ -14,6 +14,7 @@ describe("blinkyDancer", function() {
   });
 
   it("should have a step function that makes its node blink", function() {
+    // debugger;
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle.called).to.be.true;
