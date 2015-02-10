@@ -18,8 +18,10 @@ var MakeDancer = function(top, left, timeBetweenSteps){
 
 MakeDancer.prototype.lineUp = function(yDancerLoc, xDancerLoc, distBetween){
   var result = []
-  result.push(Math.random() * 100);
-  result.push(yDancerLoc + distBetween);
+  var xLoc = xDancerLoc + Math.random() * 100;
+  var yLoc = yDancerLoc + distBetween;
+  result.push(xLoc);
+  result.push(yLoc);
   result.push(this.duration);
   result.push(this.style);
   return result;

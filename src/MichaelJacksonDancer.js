@@ -13,7 +13,7 @@ MichaelJacksonDancer.prototype.constructor = MichaelJacksonDancer;
 
 MichaelJacksonDancer.prototype.lineUp = function(yDancerLoc, xDancerLoc, distBetween){
   var result = [];
-  result.push(Math.random() * 100 + 400);
+  result.push(Math.random() * 100 + xDancerLoc);
   result.push(yDancerLoc + distBetween);
   result.push(this.duration);
   result.push(this.style);

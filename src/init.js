@@ -11,7 +11,7 @@
           var heightMax = $("body").height() * .75;
           var heightMin = $("body").height() * .3;
           var distBetween = (heightMax - heightMin) / dancers[j].length;
-          var xDancerLoc = 0;
+          var xDancerLoc = 0 + (j * 700);
           var yDancerLoc = heightMin;
 
           for (var i = 0; i < dancers[j].length; i++) {
@@ -19,6 +19,7 @@
             // set new position value of left and top
             var newLocs = dancers[j][i].lineUp(yDancerLoc, xDancerLoc, distBetween);
             xDancerLoc = newLocs[0];
+            console.log(xDancerLoc)
             yDancerLoc = newLocs[1];
             var duration = newLocs[2];
             var style = newLocs[3];
@@ -45,14 +46,15 @@
   });
 
   $(".spin").on("click", function(event){
-    var spinThis = function(i,x){
-      setTimeout(function(){dancers[i].$node.addClass("animated flip")},x);
+    var spinThis = function(i,j,x){
+      setTimeout(function(){dancers[j][i].$node.addClass("animated flip")},x);
     };
-
-    for (var i = 0, x = 100; i < dancers.length; i++) {
-      spinThis(i,x);
-      x += 200;
-      dancers[i].$node.removeClass("animated flip");
+    for (var j = 0; j < dancers.length; j++) {
+      for (var i = 0, x = 100; i < dancers[j].length; i++) {
+        spinThis(i, j, x);
+        x += 200;
+        dancers[j][i].$node.removeClass("animated flip");
+      }
     }
   });
 
