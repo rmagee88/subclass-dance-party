@@ -14,7 +14,7 @@ $(".lineUpButton").on("click", function(event){
     for (var i = 0; i < dancers.length; i++) {
       // set new position value of left and top
       dancers[i].$node.animate({"top": yDancerLoc, "left": xDancerLoc},500, "swing");
-      xDancerLoc += Math.random() * 40
+      xDancerLoc += Math.random() * 100
       yDancerLoc += distBetween;
     }
   }
@@ -28,33 +28,28 @@ $(".lineUpButton").on("click", function(event){
      }
 
    }
-}
-
-// $(".spin").on("click", function(event){
-//   for (var i = 0; i < dancers.length; i++) {
-//       // set new position value of left and top
-//       dancers[i].$node.css("animated flip");
-//     }
-//   }
-//     else {
-//     {
-//       $(".lineUpButton").text("Line 'Em Up")
-//       for (var i = 0; i < dancers.length; i++)
-//       {
-//        dancers[i].$node.animate({"top": Math.floor(dancers[i].top), "left": Math.floor(dancers[i].left)},500, "swing");
-
-//      }
-
-//    }
-// }
-
-
-
-    // window height / # dancers
-      // each dancer should be that many pixels down
-
+ }
 
 });
+
+$(".spin").on("click", function(event){
+
+     var spinThis = function(i,x){
+        setTimeout(function(){dancers[i].$node.addClass("animated flip")},x);
+      }
+
+      for (var i = 0, x = 100; i < dancers.length; i++) {
+        spinThis(i,x);
+        x += 200;
+      }
+
+
+
+
+
+
+
+  });
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
