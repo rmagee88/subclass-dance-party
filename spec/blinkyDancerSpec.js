@@ -7,6 +7,9 @@ describe("blinkyDancer", function() {
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     blinkyDancer = new MakeBlinkyDancer(10, 20, timeBetweenSteps);
+    CarltonDancer = new MakePopDancer(100, 100, 100);
+    MichaelJacksonInstance = new MichaelJacksonDancer(100, 100, 100);
+
   });
 
   it("should have a jQuery $node object", function(){
@@ -14,7 +17,6 @@ describe("blinkyDancer", function() {
   });
 
   it("should have a step function that makes its node blink", function() {
-    // debugger;
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle.called).to.be.true;
@@ -33,4 +35,23 @@ describe("blinkyDancer", function() {
       expect(blinkyDancer.step.callCount).to.be.equal(2);
     });
   });
+
+  describe("MichaelJacksonDancer", function() {
+    it("should have duration of 800", function() {
+      expect(MichaelJacksonInstance.duration).to.be.equal(800);
+    });
+    it("should inherit style property of swing", function() {
+      expect(MichaelJacksonInstance.style).to.be.equal("swing");
+    });
+  });
+
+  describe("CarltonDancer", function() {
+    it("should have duration of 500", function() {
+      expect(CarltonDancer.duration).to.be.equal(500);
+    });
+    it("should inherit lineUp function", function() {
+      expect(CarltonDancer.lineUp);
+    });
+  });
+
 });
