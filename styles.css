@@ -40,3 +40,12 @@ body, a:link, a:visited, a:active{
 
 }
 
+.moon{
+  height:50px;
+  width:70px;
+  position:absolute;
+  left: 100px;
+  top:100px;
+  display:none;
+}
+

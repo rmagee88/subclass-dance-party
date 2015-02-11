@@ -26,3 +26,17 @@ MichaelJacksonDancer.prototype.lineUp = function(yDancerLoc, xDancerLoc, distBet
   result.push(this.style);
   return result;
 };
+
+MichaelJacksonDancer.prototype.moonWalk = function(index){
+  var width = window.screen.width;
+  var height = window.screen.height;
+  var initialWidth = width * .4;
+  var initialHeight = height * .2;
+  var positionsWidth = ((width  * .7) - (width * .4)) / dancers[0].length;
+  var positionsHeight = ((height * .35) - (height * .2)) / dancers[0].length;
+  this.$node.animate({
+    "left": initialWidth + (index * positionsWidth),
+    "top": initialHeight + (index * positionsHeight)
+  }, 2000);
+
+};

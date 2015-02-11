@@ -6,7 +6,8 @@
 
       // loop through dancers
       if($(".lineUpButton").text() === "Line 'Em Up"){
-        $(".lineUpButton").text("Return to Position")
+        $(".lineUpButton").text("Return to Position");
+        $('.moon').toggle();
         // loop through dancers object
         for (var j = 0; j < dancers.length; j++) {
           // loop through each type of dancer
@@ -21,7 +22,6 @@
             // set new position value of left and top
             var newLocs = dancers[j][i].lineUp(yDancerLoc, xDancerLoc, distBetween);
             xDancerLoc = newLocs[0];
-            console.log(xDancerLoc)
             yDancerLoc = newLocs[1];
             var duration = newLocs[2];
             var style = newLocs[3];
@@ -36,7 +36,8 @@
       }
       else {
 
-        $(".lineUpButton").text("Line 'Em Up")
+        $(".lineUpButton").text("Line 'Em Up");
+        if ($('.moon').css('display') === 'block') $('.moon').toggle();
         for (var j = 0; j < dancers.length; j++) {
           for (var i = 0; i < dancers[j].length; i++){
             dancers[j][i].$node.animate({"top": Math.floor(dancers[j][i].top), "left": Math.floor(dancers[j][i].left)}, dancers[j][i].duration, dancers[j][i].style);
@@ -56,6 +57,14 @@
         dancers[j][i].$node.removeClass("animated flip");
       }
     }
+  });
+
+  $(".moon").on("click", function(event) {
+    $(this).toggle();
+    for (var i = 0; i < dancers[0].length; i++) {
+      dancers[0][i].moonWalk(i);
+    }
+
   });
 
   $(".addDancerButton").on("click", function(event){
@@ -105,10 +114,4 @@
     }
   });
 
-// this won't work because there aren't any carltons
-// add this to each carlton we make...
-//separate Jquery Mouseover event
 
-
-  //Node x,y
-  //The Mouse x,y
