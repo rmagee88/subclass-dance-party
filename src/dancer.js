@@ -1,4 +1,5 @@
 // Creates and returns a new dancer object that can step
+
 var MakeDancer = function(top, left, timeBetweenSteps){
 
   // use jQuery to create an HTML <span> tag

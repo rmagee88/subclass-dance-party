@@ -86,6 +86,7 @@
     );
     $('body').append(dancer.$node);
     if(dancerMakerFunctionName === "MichaelJacksonDancer"){
+      $('audio')[0].play()
       dancers[0].push(dancer);
     }
     if(dancerMakerFunctionName === "MakePopDancer"){
