@@ -1,4 +1,6 @@
   window.dancers = [[],[]];
+  //Bouncer Variable
+  window.bouncerMode = false;
 
   $(".lineUpButton").on("click", function(event){
 
@@ -28,8 +30,6 @@
             // yDancerLoc += distBetween;
 
             dancers[j][i].$node.animate({"top": yDancerLoc, "left": xDancerLoc}, duration, style)
-
-
 
           }
         }
@@ -94,3 +94,20 @@
 
   });
 
+  $('.bouncer').on('click',function(event){
+    bouncerMode = !bouncerMode;
+    if ($('.bouncer').text() === "Bouncer Mode Off"){
+      $('.bouncer').text("Bouncer Mode On");
+    }
+    else{
+      $('.bouncer').text("Bouncer Mode Off");
+    }
+  });
+
+// this won't work because there aren't any carltons
+// add this to each carlton we make...
+//separate Jquery Mouseover event
+
+
+  //Node x,y
+  //The Mouse x,y

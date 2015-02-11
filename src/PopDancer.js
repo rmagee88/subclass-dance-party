@@ -3,8 +3,7 @@ var MakePopDancer = function(top, left, timeBetweenSteps){
   this.$node = $('<img src="lib/carlton.gif" class="carlton"></img>');
   this.setPosition(top, left);
   this.duration = 500;
-  // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
-  // so we must keep a copy of the old version of this function
+  // this.$node.on("mouseover", function() {alert('Carlton Banks');});
 
 };
 

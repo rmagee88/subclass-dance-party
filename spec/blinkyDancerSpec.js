@@ -7,8 +7,8 @@ describe("blinkyDancer", function() {
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     blinkyDancer = new MakeBlinkyDancer(10, 20, timeBetweenSteps);
-    CarltonDancer = new MakePopDancer(100, 100, 100);
-    MichaelJacksonInstance = new MichaelJacksonDancer(100, 100, 100);
+    CarltonDancer = new MakePopDancer(100, 100, timeBetweenSteps);
+    MichaelJacksonInstance = new MichaelJacksonDancer(100, 100, timeBetweenSteps);
 
   });
 
@@ -24,7 +24,7 @@ describe("blinkyDancer", function() {
 
   describe("dance", function(){
     it("should call step at least once per second", function(){
-      sinon.spy(blinkyDancer, "step");
+      sinon.spy(MakeBlinkyDancer, "step");
       expect(blinkyDancer.step.callCount).to.be.equal(0);
       clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
       clock.tick(timeBetweenSteps);
